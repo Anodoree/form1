@@ -1,0 +1,217 @@
+@import url(../fonts/fonts.css);
+body {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Gilroy', 'Arial', sans-serif;
+  color: #1C154E;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1194px;
+  margin: 0 auto;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #E5E5E5;
+}
+
+.back__inner {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 440px;
+  max-width: 440px;
+  min-height: 535px;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 0 50px 50px 50px;
+  -webkit-box-shadow: 10px 10px 60px #E2E7FF;
+          box-shadow: 10px 10px 60px #E2E7FF;
+}
+
+.form::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -15px;
+  right: -34px;
+  width: 103px;
+  height: 118px;
+  background-image: url("../images/dots.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.form__title {
+  margin-bottom: 14px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.form__title--product {
+  margin-top: 10px;
+}
+
+.form__label {
+  margin-bottom: 10px;
+}
+
+.form__label--product {
+  margin-bottom: 14px;
+}
+
+.form__input {
+  margin-bottom: 14px;
+  padding: 0 0 6px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: inherit;
+  border: 0;
+  border-bottom: 1.5px solid #E1E3EE;
+}
+
+.form__input--product {
+  margin-bottom: 18px;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: #D0D3E2;
+}
+
+.form__input:-ms-input-placeholder {
+  color: #D0D3E2;
+}
+
+.form__input::-ms-input-placeholder {
+  color: #D0D3E2;
+}
+
+.form__input::placeholder {
+  color: #D0D3E2;
+}
+
+.form__input:focus-visible {
+  outline: none;
+}
+
+.form__add {
+  position: relative;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  padding: 5px 22px 12px 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: inherit;
+  color: #23C967;
+  background-color: transparent;
+  border: 0;
+}
+
+.form__add::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 13px;
+  height: 13px;
+  background-image: url("../images/submit.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.form__text {
+  margin-bottom: 10px;
+}
+
+.form__pay {
+  margin: 10px 0;
+  padding: 10px 0 12px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #23C967;
+  border: 0;
+  border-radius: 15px;
+}
+
+.form__secure {
+  position: relative;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #AFB4CC;
+  text-decoration: none;
+}
+
+.form__secure::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11px;
+  height: 14px;
+  background-image: url("../images/lock.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 440px) {
+  .form {
+    padding: 35px;
+  }
+}
+
+@media (min-width: 510px) {
+  .back__inner {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .wrapper {
+    padding: 0 35px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

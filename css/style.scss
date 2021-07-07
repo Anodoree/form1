@@ -1,0 +1,176 @@
+@import url(../fonts/fonts.css);
+
+$back: #E5E5E5;
+$shadow: #E2E7FF;
+$text: #1C154E;
+$white: #ffffff;
+$accent: #23C967;
+$input-border: #E1E3EE;
+$placeholder: #D0D3E2;
+$secure-text: #AFB4CC;
+
+body {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Gilroy', 'Arial', sans-serif;
+  color: $text;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1194px;
+  margin: 0 auto;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  background-color: $back;
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.form {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  max-width: 440px;
+  min-height: 535px;
+  padding: 25px;
+  background-color: $white;
+  border-radius: 0 50px 50px 50px;
+  box-shadow: 10px 10px 60px $shadow;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+    right: -34px;
+    width: 103px;
+    height: 118px;
+    background-image: url('../images/dots.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &__title {
+    margin-bottom: 14px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+  &__title--product {
+    margin-top: 10px;
+  }
+  &__label {
+    margin-bottom: 10px;
+  }
+  &__label--product {
+    margin-bottom: 14px;
+  }
+  &__input {
+    margin-bottom: 14px;
+    padding: 0 0 6px 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: inherit;
+    border: 0;
+    border-bottom: 1.5px solid $input-border;
+  }
+  &__input--product {
+    margin-bottom: 18px;
+  }
+  &__input::placeholder {
+    color: $placeholder;
+  }
+  &__input:focus-visible {
+    outline: none;
+  }
+  &__add {
+    position: relative;
+    align-self: start;
+    padding: 5px 22px 12px 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: inherit;
+    color: $accent;
+    background-color: transparent;
+    border: 0;
+  }
+  &__add::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 13px;
+    height: 13px;
+    background-image: url('../images/submit.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &__text {
+    margin-bottom: 10px;
+  }
+  &__pay {
+    margin: 10px 0;
+    padding: 10px 0 12px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: inherit;
+    color: $white;
+    background-color: $accent;
+    border: 0;
+    border-radius: 15px;
+  }
+  &__secure {
+    position: relative;
+    align-self: center;
+    padding-left: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $secure-text;
+    text-decoration: none;
+  }
+  &__secure::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 11px;
+    height: 14px;
+    background-image: url('../images/lock.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 440px) {
+  .form{
+    padding: 35px;
+  }
+}
+@media (min-width: 510px) {
+  .back{
+    &__inner{
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+  }
+  .wrapper {
+    padding: 0 35px;
+  }
+}
