@@ -1,25 +1,43 @@
 @import url(../fonts/fonts.css);
 
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
 $back: #E5E5E5;
 $shadow: #E2E7FF;
 $text: #1C154E;
+$black: #000000;
 $white: #ffffff;
 $accent: #23C967;
-$input-border: #E1E3EE;
+$border-color: #E1E3EE;
 $placeholder: #D0D3E2;
 $secure-text: #AFB4CC;
+$label-hover: #F4F5FA;
+$more-products-sale: #A7A2CB;
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border: none;
+}
+
+::-webkit-scrollbar-track {
+  background: $border-color;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent;
+  border-radius: 2px;
+}
 
 body {
   font-weight: 500;
   font-size: 16px;
   font-family: 'Gilroy', 'Arial', sans-serif;
   color: $text;
-}
-
-.wrapper {
-  width: 100%;
-  max-width: 1194px;
-  margin: 0 auto;
 }
 
 .back {
@@ -32,53 +50,95 @@ body {
   display: flex;
   align-items: center;
   background-color: $back;
+
   &__inner {
     position: relative;
+    width: 100%;
+    max-width: 1194px;
+    margin: 0 auto;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
+    background-image: url('../images/dots.png');
+    background-repeat: no-repeat;
+    background-size: 103px;
+    background-position: top right;
   }
 }
 
 .form {
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
+  flex: 0 1 440px;
+  height: 535px;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
-  width: 440px;
-  max-width: 440px;
-  min-height: 535px;
-  padding: 25px;
+  justify-content: center;
+  align-items: center;
   background-color: $white;
   border-radius: 0 50px 50px 50px;
   box-shadow: 10px 10px 60px $shadow;
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: -15px;
-    right: -34px;
-    width: 103px;
-    height: 118px;
-    background-image: url('../images/dots.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+
+  &__inner {
+    overflow-y: hidden;
+    max-height: 465px;
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
+
+  &__list {
+    overflow-y: auto;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    scrollbar-width: thin;
+    scrollbar-color: $accent $border-color;
+  }
+
+  &__product {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__product-del {
+    position: absolute;
+    top: calc(50% - 6px);
+    right: 0;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    background-image: url('../images/submit.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    border: 0;
+    transform: rotate(45deg);
+  }
+
   &__title {
+    position: relative;
     margin-bottom: 14px;
     font-weight: bold;
     font-size: 18px;
     line-height: 1.35;
   }
+
   &__title--product {
+    align-self: flex-start;
     margin-top: 10px;
+    padding-right: 20px;
   }
+
   &__label {
     margin-bottom: 10px;
   }
+
   &__label--product {
     margin-bottom: 14px;
   }
+
   &__input {
     margin-bottom: 14px;
     padding: 0 0 6px 0;
@@ -86,18 +146,19 @@ body {
     font-size: 16px;
     line-height: 19px;
     font-family: inherit;
+    background-color: transparent;
     border: 0;
-    border-bottom: 1.5px solid $input-border;
+    border-bottom: 1.5px solid $border-color;
   }
+
   &__input--product {
     margin-bottom: 18px;
   }
+
   &__input::placeholder {
     color: $placeholder;
   }
-  &__input:focus-visible {
-    outline: none;
-  }
+
   &__add {
     position: relative;
     align-self: start;
@@ -110,6 +171,7 @@ body {
     background-color: transparent;
     border: 0;
   }
+
   &__add::before {
     content: '';
     position: absolute;
@@ -121,11 +183,9 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  &__text {
-    margin-bottom: 10px;
-  }
+
   &__pay {
-    margin: 10px 0;
+    margin: 20px 15px 10px;
     padding: 10px 0 12px;
     font-weight: bold;
     font-size: 18px;
@@ -134,7 +194,22 @@ body {
     background-color: $accent;
     border: 0;
     border-radius: 15px;
+    position: relative;
   }
+
+  &__pay--loading::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 16px);
+    left: calc(50% - 16px);
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/loading.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: rotate 2s linear 0s infinite normal both;
+  }
+
   &__secure {
     position: relative;
     align-self: center;
@@ -145,6 +220,7 @@ body {
     color: $secure-text;
     text-decoration: none;
   }
+
   &__secure::before {
     content: '';
     position: absolute;
@@ -156,21 +232,111 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  &__change-list {
+    margin: 15px 0 23px;
+    border: 1.5px solid $border-color;
+    border-radius: 15px;
+  }
+
+  &__change-item {
+    position: relative;
+    display: block;
+    padding: 11px 17px 11px 50px;
+    transition: background-color 0.2s;
+  }
+
+  &__change-item:hover {
+    background-color: $label-hover;
+  }
+
+  &__change-item+&__change-item {
+    border-top: 1.5px solid $border-color;
+  }
+
+  &__change-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  &__change-check {
+    content: '';
+    position: absolute;
+    top: calc(50% - 11px);
+    left: 16px;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid $border-color;
+    border-radius: 50%;
+  }
+
+  &__change-input:checked+&__change-check::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 6px);
+    left: calc(50% - 6px);
+    width: 12px;
+    height: 12px;
+    background-color: $accent;
+    border-radius: 50%;
+  }
+
+  &__change-title {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $black;
+  }
+
+  &__change-text {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: $more-products-sale;
+  }
+  &__change-text--accent {
+    color: $accent;
+  }
+}
+
+.add-products {
+  position: absolute;
+  width: 100%;
+  transform: scale(0);
+  transition: transform 0.2s;
+  &--active{
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 395px) {
+  .form {
+    &__list {
+      padding: 0 10px;
+    }
+  }
 }
 
 @media (min-width: 440px) {
-  .form{
-    padding: 35px;
+  .form {
+    padding: 0 15px;
+
+    &__list {
+      padding: 0 15px;
+    }
   }
 }
+
 @media (min-width: 510px) {
-  .back{
-    &__inner{
+  .back {
+    &__inner {
+      padding: 15px 35px;
       flex-direction: row-reverse;
       justify-content: flex-start;
     }
-  }
-  .wrapper {
-    padding: 0 35px;
   }
 }

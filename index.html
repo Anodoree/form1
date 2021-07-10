@@ -11,32 +11,77 @@
 <body>
 
   <div class="back">
-    <div class="wrapper">
       <div class="back__inner">
 
-        <form class="form" action="#" method="">
+        <form class="form" action="" method="">
+          <div class="form__inner">
+            <div class="form__list">
+              <h3 class="form__title">Info</h3>
+              <label class="form__label" for="email">Enter your email address</label>
+              <input class="form__input" type="email" name="" id="email" placeholder="team@checkforpatent.com">
+        
+              <div class="form__product" id="formproduct1">
+                <h3 class="form__title form__title--product">Product 1</h3>
+                <label class="form__label form__label--product" for="search1">Enter main keyword for the product</label>
+                <input class="form__input form__input--product" type="search" name="" id="search1" placeholder="for example, sylicon wine cup">
+                <label class="form__label form__label--product" for="similar1">Enter link to the similar product as a reference</label>
+                <input class="form__input form__input--product" type="url" name="" id="similar1" placeholder="https://...">
+              </div>
 
-          <h3 class="form__title">Info</h3>
-          <label class="form__label" for="email">Enter your email address</label>
-          <input class="form__input" type="email" name="" id="email" placeholder="team@checkforpatent.com">
-    
-          <h3 class="form__title form__title--product">Product 1</h3>
-          <label class="form__label form__label--product" for="search">Enter main keyword for the product</label>
-          <input class="form__input form__input--product" type="search" name="" id="search" placeholder="for example, sylicon wine cup">
-          <label class="form__label form__label--product" for="similar">Enter link to the similar product as a reference</label>
-          <input class="form__input form__input--product" type="url" name="" id="similar" placeholder="https://...">
-    
-          <button class="form__add" type="submit">Add more products</button>
-          <p class="form__text">We offer discount up to 36% for multiple checks</p>
-    
-          <button class="form__pay" type="submit">Submit and Pay 24.99 USD</button>
-          <a class="form__secure" href="#" target="_blank">Secure payment with Stripe</a>
+              <button class="form__add" id="addproduct" type="button" onclick="pushAddProducts()">Add more products</button>
+              <p class="form__text">We offer discount up to 36% for multiple checks</p>
+            </div>
+            <button class="form__pay" id="submitbtn" type="submit">Submit and Pay 24.99 USD</button>
+            <a class="form__secure" href="#" target="_blank">Secure payment with Stripe</a>
+          </div>
+        
 
-        </form>
+        <div class="form add-products" id="addform">
+          <div class="form__inner">
+            <div class="form__list">
+              <h3 class="form__title">Adding more products</h3>
+              <p class="form__text">The more items you check, the better the price.</p>
+              <div class="form__change-list">
+                <label class="form__change-item">
+                  <input class="form__change-input" type="radio" name="radio" id="addfiveproducts" value="5" checked>
+                  <span class="form__change-check"></span>
+                  <span class="form__change-title">5 products for 80 usd / 16$ for each</span>
+                  <span class="form__change-text form__change-text--accent">You safe 36% on each patent check</span>
+                </label>
+                <label class="form__change-item">
+                  <input class="form__change-input" type="radio" name="radio" id="addfourproducts" value="4">
+                  <span class="form__change-check"></span>
+                  <span class="form__change-title">4 products for 72 usd / 18$ for each</span>
+                  <span class="form__change-text">You safe 28% on each patent check</span>
+                </label>
+                <label class="form__change-item">
+                  <input class="form__change-input" type="radio" name="radio" id="addthreeproducts" value="3">
+                  <span class="form__change-check"></span>
+                  <span class="form__change-title">3 products for 60 usd / 20$ for each</span>
+                  <span class="form__change-text">You safe 20% on each patent check</span>
+                </label>
+                <label class="form__change-item">
+                  <input class="form__change-input" type="radio" name="radio" id="addtwoproducts" value="2">
+                  <span class="form__change-check"></span>
+                  <span class="form__change-title">2 products for 44 usd / 22$ for each</span>
+                  <span class="form__change-text">You safe 12% on each patent check</span>
+                </label>
+                <label class="form__change-item">
+                  <input class="form__change-input" type="radio" name="radio" id="addoneproduct" value="1">
+                  <span class="form__change-check"></span>
+                  <span class="form__change-title">1 product for 24.99 usd</span>
+                </label>
+              </div>
+            </div>
+            <button class="form__pay" id="addformcontinue" type="button" onclick="howMuchProducts()">Continue</button>
+          </div>
+        </div>
+      </form>
 
       </div>
-    </div>
   </div>
 
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="js/main.js"></script>
 </body>
 </html>
